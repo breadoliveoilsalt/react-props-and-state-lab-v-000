@@ -32,6 +32,10 @@ describe('<Pet />', () => {
   describe('Rendering props', () => {
     it('should render the name', () => {
       const wrapper = shallow(<Pet pet={MALE_DOG} />);
+      // wrapper = component
+      // shallow = mounting Pet
+      // wrapper text is checking html -- focus on this
+      // debugger
       expect(wrapper.text().includes(MALE_DOG.name)).to.be.true;
     });
 
