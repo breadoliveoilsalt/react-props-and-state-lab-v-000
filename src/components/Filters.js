@@ -12,6 +12,12 @@ class Filters extends React.Component {
     // a variable and then add {variable} to the html below.
   }
 
+
+  // Used to have onChange={this.handleChange}
+  // this caused more tests not to pass (in return)
+    // onChange = {this.props.onChangeType}
+  // this caused even more tests not to pass (in return):
+    // onChange={this.props.onChangeType(this.state.type)}
   handleChange = (event) => {
     this.setState(
       {type: event.target.value},
