@@ -23,7 +23,8 @@ class App extends React.Component {
       {filters:
         {...this.state.filters,
           type: event.target.value
-        }
+        },
+        adoptedPets: []
       }
     )
   }
@@ -33,14 +34,35 @@ class App extends React.Component {
     if (this.state.filters.type === 'all') {
       fetch('/api/pets')
       .then(res => res.json())
-      .then(res => console.log(res))
+      .then(
+        res => {
+          console.log(res)
+          this.setState({
+            pets: res
+          })
+        })
     }
     else {
       const url = '/api/pets?type=' + this.state.filters.type
       fetch(url)
       .then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        this.setState({
+          pets: res
+        })
+      })
     }
+  }
+
+  onAdoptPet = (id) => {
+    this.setState(
+      {adoptedPets:
+        [...this.state.adoptedPets,
+        id]
+      }
+    )
+
   }
 
 
