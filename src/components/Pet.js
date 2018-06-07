@@ -6,7 +6,7 @@ class Pet extends React.Component {
   }
 
   render() {
-    const id = this.props.petInfo.id
+    // const id = this.props.petInfo.id
     return (
       <div className="card">
         <div className="content">
