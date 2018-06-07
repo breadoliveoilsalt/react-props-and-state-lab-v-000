@@ -3,10 +3,17 @@ import React from 'react';
 import Pet from './Pet';
 
 class PetBrowser extends React.Component {
+
+    // {list.map((item, index) => <li key={index}>{item.char}</li>)}
+
   render() {
+
+    const petList = this.props.pets
     return (
       <div className="ui cards">
-        <code>&lt;Pet /&gt;</code> &nbsp; components should go here
+          {petList.map((pet, index) => <Pet petInfo={pet} />)}
+
+      
       </div>
     );
   }
